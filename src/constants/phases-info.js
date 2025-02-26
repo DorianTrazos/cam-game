@@ -1,7 +1,7 @@
 export const PHASES_INFO = [
   {
     title: 'MEMORIZA',
-    time: 10
+    time: 11
   },
   {
     title: '¿LO TIENES?',
@@ -9,6 +9,6 @@ export const PHASES_INFO = [
   },
   {
     title: '¿QUÉ HA CAMBIADO?',
-    time: 20
+    time: 21
   }
 ];

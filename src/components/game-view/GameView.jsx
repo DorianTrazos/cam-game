@@ -5,19 +5,23 @@ import { ROOMS_TO_PLAY } from '../../constants/room-images';
 import ContextMenu from '../context-menu/ContextMenu';
 import Timer from '../timer/Timer';
 
-const GameView = ({ level, setLevel }) => {
+const GameView = ({ level, setLevel, setPhase }) => {
   const containerRef = useRef(null);
   const [menuCoordinates, setMenuCoordinates] = useState(null);
   const [gridClick, setGridClick] = useState(null);
   const [points, setPoints] = useState(0);
   const [view, setView] = useState(0);
+  const timeToChangeView = PHASES_INFO[view]?.time * 1000 || null;
 
   useEffect(() => {
-    const timeToChangeView = PHASES_INFO[view].time * 1000;
+    if (!timeToChangeView) {
+      setPhase(2);
+      return;
+    }
     const timeoutId = setTimeout(() => setView(view + 1), timeToChangeView);
     console.log(containerRef);
     return () => clearTimeout(timeoutId);
-  }, [view]);
+  }, [view, timeToChangeView, setPhase]);
 
   return (
     <>

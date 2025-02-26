@@ -10,7 +10,8 @@ const Game = () => {
       <h1>INTERACTIVE GAME</h1>
       <div className='game-container'>
         {phase === 0 && <StartScreen phase={phase} setPhase={setPhase} />}
-        {phase === 1 && <GameView level={level} setLevel={setLevel} phase={phase} />}
+        {phase === 1 && <GameView level={level} setLevel={setLevel} phase={phase} setPhase={setPhase} />}
+        {phase === 2 && <h1>SE ACABÓ</h1>}
       </div>
     </>
   );
