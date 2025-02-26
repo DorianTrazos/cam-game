@@ -6,16 +6,53 @@ img {
 body {
   font-family: sans-serif;
   background-color: #333;
+  color: aliceblue;
+}
+
+h1 {
+  text-align: center;
+}
+
+.game-user-info {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+  gap: 2rem;
+}
+
+.info {
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.info-title {
+  margin-block: 0 0.5rem;
+  font-size: 1rem;
+}
+
+.info-data {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .image-container {
   --room-image: url('/example.png');
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  width: 600px;
-  height: 440px;
-  margin-inline: auto;
+  grid-template-columns: repeat(20, 1fr);
+  width: 500px;
+  min-width: 500px;
+  height: 400px;
   background-image: var(--room-image);
   background-size: contain;
   background-repeat: no-repeat;
@@ -31,6 +68,46 @@ body {
   align-items: center;
   justify-content: center;
   border: 1px solid red;
-  color: aliceblue;
-  opacity: 0.5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.option-list {
+  --top: 0;
+  --left: 0;
+  list-style: none;
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 0;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+  background-color: rgba(17 17 17/ 0.4);
+  border-radius: 1rem;
+}
+
+.option-list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -45px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.option {
+  border-bottom: 1px solid aliceblue;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .option:hover {
+    color: rgb(77, 192, 253);
+  }
 }

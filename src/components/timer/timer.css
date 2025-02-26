@@ -1,0 +1,19 @@
+.timer {
+  --time: ;
+  position: relative;
+  width: 25%;
+  height: 25px; /* Ajusta según lo necesites */
+  background-color: #c0c0c0;
+  overflow: hidden;
+}
+
+.timer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-image: linear-gradient(to right, rgb(128, 0, 60), orange);
+  width: calc(var(--time) * 1%);
+  transition: width 1s linear;
+}
